@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .middle-container {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+      }
+
+      .top-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+
+      .top-section::after {
+        content: "⬇";
+      }
+
+      /* .top-section:hover .dropdown-menu {
+        /* visibility: visible; */
+      /* transform: scale(1); */
+      /* transform: translateX(0); */
+      /* } */
+
+      .dropdown-menu {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        list-style: none;
+        padding: 10px;
+        background-color: black;
+        color: white;
+        /* visibility: hidden; */
+        /* display: flex;
+        flex-direction: column; */
+
+        transform: translateX(-100%);
+        transition-property: transform;
+        /* transform-origin: top; */
+        transition-duration: 0.4s;
+        transition-timing-function: ease-in-out;
+      }
+
+      .dropdown-menu-onClick {
+        transform: translateX(0);
+      }
+
+      .dropdown-menu li {
+        display: flex;
+        justify-content: center;
+        padding: 10px 20px;
+        color: white;
+        /* max-width: 10rem; */
+        width: fit-content;
+        gap: 20px;
+      }
+
+      .dropdown-menu li::after {
+        content: "⬇";
+        visibility: hidden;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: rgba(150, 150, 150, 0.308);
+        border-radius: 10px;
+      }
+
+      .dropdown-menu li:hover::after {
+        visibility: visible;
+      }
+
+      .btn {
+        width: fit-content;
+        padding: 10px 25px;
+        border: 1px solid blue;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <img src="./starter kit/images/logo-cc.svg" />
+      </div>
+      <div>
+        <ul class="middle-container">
+          <li class="top-section" onclick="toggleSideBar()">
+            <a id="topSection">Projects</a>
+
+            <ul id="dropDownMenu" class="dropdown-menu">
+              <li>Project 1</li>
+              <li>Project 2</li>
+              <li>Project 3</li>
+              <li>Project 4</li>
+            </ul>
+          </li>
+          <li><a>About us</a></li>
+          <li><a>Blog</a></li>
+          <li><a>Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <button type="text" class="btn">Get a quote</button>
+      </div>
+    </header>
+
+    <script>
+      //   const topSection = document.querySelector(".top-section");
+      //   const dropDownMenu = document.getElementById("dropDownMenu");
+
+      //   topSection.addEventListener("click", function () {
+      //     dropDownMenu.classList.toggle("dropdown-menu-onClick");
+      //   });
+
+      function toggleSideBar() {
+        const dropDownMenu = document.getElementById("dropDownMenu");
+        dropDownMenu.classList.toggle("dropdown-menu-onClick");
+      }
+    </script>
+  </body>
+</html>
